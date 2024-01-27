@@ -32,7 +32,7 @@ jobs:
     - name: maven-settings-xml-action
       uses: whelk-io/maven-settings-xml-action@v20
       with:
-        servers: '[{ "id": "oglimmer-repository-releases", "username": "admin", "${{secrets.MAVEN_REPO_USER}}": "${{secrets.MAVEN_REPO_PASSWORD}}" }, { "id": "oglimmer-repository-snapshots", "username": "admin", "${{secrets.MAVEN_REPO_USER}}": "${{secrets.MAVEN_REPO_PASSWORD}}" }]'
+        servers: '[{ "id": "oglimmer-repository-releases", "username": "${{secrets.MAVEN_REPO_USER}}", "password": "${{secrets.MAVEN_REPO_PASSWORD}}" }, { "id": "oglimmer-repository-snapshots", "username": "${{secrets.MAVEN_REPO_USER}}", "password": "${{secrets.MAVEN_REPO_PASSWORD}}" }]'
 
     - name: Deploy with Maven
       run: mvn -B deploy --file pom.xml
