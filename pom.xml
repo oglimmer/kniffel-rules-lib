@@ -33,9 +33,6 @@
 				<version>3.12.1</version>
 				<configuration>
 					<release>17</release>
-					<compilerArgs>
-						<arg>-proc:full</arg>
-					</compilerArgs>
 				</configuration>
 			</plugin>	
 		</plugins>
