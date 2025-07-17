@@ -11,7 +11,7 @@
 
 	<groupId>com.oglimmer</groupId>
 	<artifactId>kniffel-rules-lib</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.4-SNAPSHOT</version>
 	<name>kniffel-rules-lib</name>
 
 	<scm>
