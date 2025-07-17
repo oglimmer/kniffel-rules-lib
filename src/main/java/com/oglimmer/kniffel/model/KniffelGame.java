@@ -54,7 +54,7 @@ public class KniffelGame {
      */
     public void reRollDice(int[] diceToKeep) {
         removeDice(diceRolls, diceToKeep);
-        for (int i = 0; i < 5 - (diceToKeep != null ? diceToKeep.length : 0); i++) {
+        while(diceRolls.size() < 5) {
             diceRolls.add((int) (Math.random() * 6) + 1);
         }
         diceRolls.sort(Comparator.naturalOrder());

@@ -27,7 +27,12 @@ public class KniffelRules {
     }
     
     public int getScoreFullHouse(List<Integer> diceRolls) {
-        if (diceRolls.stream().collect(Collectors.groupingBy(d -> d)).values().stream().filter(d -> d.size() == 3 || d.size() == 2).toList().size() == 2) {
+        var groups = diceRolls.stream().collect(Collectors.groupingBy(d -> d)).values();
+        var hasThreeOfAKind = groups.stream().anyMatch(group -> group.size() == 3);
+        var hasPair = groups.stream().anyMatch(group -> group.size() == 2);
+        var hasExactlyTwoGroups = groups.size() == 2;
+        
+        if (hasThreeOfAKind && hasPair && hasExactlyTwoGroups) {
             return 25;
         }
         return 0;
