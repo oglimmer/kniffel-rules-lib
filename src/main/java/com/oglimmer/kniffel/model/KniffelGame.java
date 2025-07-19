@@ -60,7 +60,7 @@ public class KniffelGame {
         diceRolls.sort(Comparator.naturalOrder());
         rollRound++;
         if (rollRound == 3) {
-            nextPhase();
+            nextPhase(GameState.BOOK);
         }
     }
 
@@ -78,11 +78,11 @@ public class KniffelGame {
         int toAddScore = getToAddScore(bookingType, diceRolls, kniffelRules);
         currentPlayer.setScore(currentPlayer.getScore() + toAddScore);
         currentPlayer.getUsedBookingTypes().add(bookingType);
-        nextPhase();
+        nextPhase(GameState.ROLL);
     }
 
-    private void nextPhase() {
-        this.state = state == GameState.ROLL ? GameState.BOOK : GameState.ROLL;
+    private void nextPhase(GameState state) {
+        this.state = state;
         if (state == GameState.ROLL) {
             this.currentPlayer = findNextPlayer();
             this.rollRound = 0;
